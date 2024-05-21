@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=3 uid="uid://7hxn085010jc"]
+
+[ext_resource type="Script" path="res://GUI/MainMenu.gd" id="1_8byer"]
+
+[node name="GUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8byer")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.443576
+anchor_top = 0.197531
+anchor_right = 0.611111
+anchor_bottom = 0.296296
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 45
+text = "GAME"
+metadata/_edit_use_anchors_ = true
+
+[node name="Play" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.444444
+anchor_top = 0.395062
+anchor_right = 0.555556
+anchor_bottom = 0.493827
+text = "Play"
+metadata/_edit_use_anchors_ = true
+
+[node name="Options" type="Button" parent="."]
+layout_mode = 0
+anchor_left = 0.444444
+anchor_top = 0.592593
+anchor_right = 0.555556
+anchor_bottom = 0.691358
+text = "Options"
+metadata/_edit_use_anchors_ = true
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 0
+anchor_left = 0.444444
+anchor_top = 0.790123
+anchor_right = 0.555556
+anchor_bottom = 0.888889
+text = "Quit"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
