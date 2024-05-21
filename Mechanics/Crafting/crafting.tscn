@@ -1,0 +1,304 @@
+[gd_scene load_steps=3 format=3 uid="uid://d00hq8mad4jt6"]
+
+[ext_resource type="Texture2D" uid="uid://cgi83bss6t4fn" path="res://icon.svg" id="1_fdof8"]
+[ext_resource type="Script" path="res://Mechanics/Crafting/crafting.gd" id="1_gxedk"]
+
+[node name="Crafting" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_gxedk")
+metadata/_edit_use_anchors_ = true
+
+[node name="Bg" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Leg1" type="TextureRect" parent="."]
+layout_mode = 0
+anchor_left = 0.4375
+anchor_top = 0.530864
+anchor_right = 0.470833
+anchor_bottom = 0.728395
+offset_right = 89.6
+scale = Vector2(0.3, 1)
+texture = ExtResource("1_fdof8")
+metadata/_edit_use_anchors_ = true
+
+[node name="Leg2" type="TextureRect" parent="."]
+layout_mode = 0
+anchor_left = 0.493056
+anchor_top = 0.530864
+anchor_right = 0.526389
+anchor_bottom = 0.728395
+offset_right = 89.6
+scale = Vector2(0.3, 1)
+texture = ExtResource("1_fdof8")
+metadata/_edit_use_anchors_ = true
+
+[node name="Body" type="TextureRect" parent="."]
+layout_mode = 0
+anchor_left = 0.423611
+anchor_top = 0.345679
+anchor_right = 0.534722
+anchor_bottom = 0.54321
+offset_bottom = 3.05176e-05
+texture = ExtResource("1_fdof8")
+metadata/_edit_use_anchors_ = true
+
+[node name="Hand1" type="TextureRect" parent="."]
+layout_mode = 0
+anchor_left = 0.347222
+anchor_top = 0.37434
+anchor_right = 0.446342
+anchor_bottom = 0.37434
+offset_top = 69.4279
+offset_right = 13.8145
+offset_bottom = 197.428
+rotation = -0.837758
+scale = Vector2(1, 0.3)
+texture = ExtResource("1_fdof8")
+metadata/_edit_use_anchors_ = true
+
+[node name="Hand2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.534722
+anchor_top = 0.333333
+anchor_right = 0.584299
+anchor_bottom = 0.51978
+offset_right = 70.8881
+offset_bottom = 7.18283
+rotation = 0.837758
+scale = Vector2(1, 0.3)
+texture = ExtResource("1_fdof8")
+metadata/_edit_use_anchors_ = true
+
+[node name="Head" type="TextureRect" parent="."]
+layout_mode = 0
+anchor_left = 0.451389
+anchor_top = 0.246914
+anchor_right = 0.506944
+anchor_bottom = 0.345679
+offset_right = 64.0
+offset_bottom = 64.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_fdof8")
+metadata/_edit_use_anchors_ = true
+
+[node name="SidePanel" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -264.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0.446777, 0.446777, 0.446777, 1)
+
+[node name="Leg1_Inventory" type="TextureRect" parent="."]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 0
+anchor_left = 0.798611
+anchor_top = 0.790123
+anchor_right = 0.831945
+anchor_bottom = 0.987654
+offset_right = 89.5999
+scale = Vector2(0.3, 1)
+texture = ExtResource("1_fdof8")
+metadata/_edit_use_anchors_ = true
+
+[node name="Leg1_Button" type="Button" parent="Leg1_Inventory"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Leg2_Inventory" type="TextureRect" parent="."]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 0
+anchor_left = 0.923611
+anchor_top = 0.790123
+anchor_right = 0.956944
+anchor_bottom = 0.987654
+offset_right = 89.6
+scale = Vector2(0.3, 1)
+texture = ExtResource("1_fdof8")
+metadata/_edit_use_anchors_ = true
+
+[node name="Leg2_Button" type="Button" parent="Leg2_Inventory"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Body_Inventory" type="TextureRect" parent="."]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 0
+anchor_left = 0.784722
+anchor_top = 0.469136
+anchor_right = 0.895833
+anchor_bottom = 0.666667
+texture = ExtResource("1_fdof8")
+metadata/_edit_use_anchors_ = true
+
+[node name="Body_Button" type="Button" parent="Body_Inventory"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Hand1_Inventory" type="TextureRect" parent="."]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 0
+anchor_left = 0.777778
+anchor_top = 0.209877
+anchor_right = 0.888889
+anchor_bottom = 0.269136
+offset_bottom = 89.6
+scale = Vector2(1, 0.3)
+texture = ExtResource("1_fdof8")
+metadata/_edit_use_anchors_ = true
+
+[node name="Hand1_Button" type="Button" parent="Hand1_Inventory"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Hand2_Inventory" type="TextureRect" parent="."]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 0
+anchor_left = 0.777778
+anchor_top = 0.320988
+anchor_right = 0.888889
+anchor_bottom = 0.380247
+offset_top = 1.52588e-05
+offset_bottom = 89.6
+scale = Vector2(1, 0.3)
+texture = ExtResource("1_fdof8")
+metadata/_edit_use_anchors_ = true
+
+[node name="Hand2_Button" type="Button" parent="Hand2_Inventory"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Head_Inventory" type="TextureRect" parent="."]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 0
+anchor_left = 0.819444
+anchor_top = 0.0246914
+anchor_right = 0.875
+anchor_bottom = 0.123457
+offset_right = 64.0
+offset_bottom = 64.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_fdof8")
+metadata/_edit_use_anchors_ = true
+
+[node name="Head_Button" type="Button" parent="Head_Inventory"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Head_Count" type="Label" parent="."]
+layout_mode = 0
+anchor_left = 0.888889
+anchor_top = 0.0493827
+anchor_right = 0.927951
+anchor_bottom = 0.0848765
+offset_right = -5.0
+text = "Head:"
+metadata/_edit_use_anchors_ = true
+
+[node name="Hand1_Count" type="Label" parent="."]
+layout_mode = 0
+anchor_left = 0.902778
+anchor_top = 0.209877
+anchor_right = 0.972222
+anchor_bottom = 0.24537
+offset_right = -40.0
+text = "Left Hand:"
+metadata/_edit_use_anchors_ = true
+
+[node name="Hand2_Count" type="Label" parent="."]
+layout_mode = 0
+anchor_left = 0.895833
+anchor_top = 0.320988
+anchor_right = 0.978299
+anchor_bottom = 0.356481
+offset_top = 1.52588e-05
+text = "Right Hand: "
+metadata/_edit_use_anchors_ = true
+
+[node name="Body_Count" type="Label" parent="."]
+layout_mode = 0
+anchor_left = 0.902778
+anchor_top = 0.54321
+anchor_right = 0.940972
+anchor_bottom = 0.578704
+offset_top = 3.05176e-05
+text = "Body:"
+metadata/_edit_use_anchors_ = true
+
+[node name="Leg1_Count" type="Label" parent="."]
+layout_mode = 0
+anchor_left = 0.784722
+anchor_top = 0.728395
+anchor_right = 0.842014
+anchor_bottom = 0.763889
+text = "Left Leg:"
+metadata/_edit_use_anchors_ = true
+
+[node name="Leg2_Count" type="Label" parent="."]
+layout_mode = 0
+anchor_left = 0.902778
+anchor_top = 0.728395
+anchor_right = 0.971354
+anchor_bottom = 0.763889
+text = "Right_Leg:"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="button_down" from="Leg1_Inventory/Leg1_Button" to="." method="_on_leg_1_button_button_down"]
+[connection signal="button_down" from="Leg2_Inventory/Leg2_Button" to="." method="_on_leg_2_button_button_down"]
+[connection signal="button_down" from="Body_Inventory/Body_Button" to="." method="_on_body_button_button_down"]
+[connection signal="button_down" from="Hand1_Inventory/Hand1_Button" to="." method="_on_hand_1_button_button_down"]
+[connection signal="button_down" from="Hand2_Inventory/Hand2_Button" to="." method="_on_hand_2_button_button_down"]
+[connection signal="button_down" from="Head_Inventory/Head_Button" to="." method="_on_head_button_button_down"]

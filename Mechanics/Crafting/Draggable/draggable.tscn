@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhh0pot6iaaxv"]
+
+[ext_resource type="Script" path="res://Mechanics/Crafting/Draggable/draggable.gd" id="1_mq4mg"]
+
+[node name="Draggable" type="TextureRect"]
+script = ExtResource("1_mq4mg")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
