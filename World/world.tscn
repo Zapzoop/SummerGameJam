@@ -1,0 +1,123 @@
+[gd_scene load_steps=13 format=3 uid="uid://vbmnwvxqys1e"]
+
+[ext_resource type="Script" path="res://World/Overworld.gd" id="1_2k0n6"]
+[ext_resource type="Script" path="res://World/Underworld.gd" id="2_h7tix"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y88xt"]
+size = Vector2(4096, 2048)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u45jn"]
+size = Vector2(4096, 2048)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_py1qe"]
+size = Vector2(200, 2048)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q7jp2"]
+size = Vector2(4096, 2048)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2s83h"]
+size = Vector2(200, 2048)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q4vx1"]
+size = Vector2(4096, 2048)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7rem"]
+size = Vector2(4096, 2048)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7h74e"]
+size = Vector2(200, 2048)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qydlo"]
+size = Vector2(4096, 2048)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j6tj2"]
+size = Vector2(200, 2048)
+
+[node name="World" type="Node2D"]
+
+[node name="Overworld" type="Node2D" parent="."]
+script = ExtResource("1_2k0n6")
+
+[node name="Chapter1" type="Area2D" parent="Overworld"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Overworld/Chapter1"]
+position = Vector2(2048, 0)
+shape = SubResource("RectangleShape2D_y88xt")
+
+[node name="Spawn_O1" type="Node2D" parent="Overworld/Chapter1"]
+
+[node name="Chapter2" type="Area2D" parent="Overworld"]
+position = Vector2(4096, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Overworld/Chapter2"]
+position = Vector2(2048, 0)
+shape = SubResource("RectangleShape2D_u45jn")
+
+[node name="Chapter2_Blocker" type="StaticBody2D" parent="Overworld/Chapter2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Overworld/Chapter2/Chapter2_Blocker"]
+position = Vector2(100, 0)
+shape = SubResource("RectangleShape2D_py1qe")
+
+[node name="Spawn_O2" type="Node2D" parent="Overworld/Chapter2"]
+position = Vector2(210, 0)
+
+[node name="Chapter3" type="Area2D" parent="Overworld"]
+position = Vector2(8192, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Overworld/Chapter3"]
+position = Vector2(2048, 0)
+shape = SubResource("RectangleShape2D_q7jp2")
+
+[node name="Chapter3_Blocker" type="StaticBody2D" parent="Overworld/Chapter3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Overworld/Chapter3/Chapter3_Blocker"]
+position = Vector2(100, 4)
+shape = SubResource("RectangleShape2D_2s83h")
+
+[node name="Spawn_O3" type="Node2D" parent="Overworld/Chapter3"]
+position = Vector2(210, 0)
+
+[node name="Underworld" type="Node2D" parent="."]
+position = Vector2(0, 3072)
+script = ExtResource("2_h7tix")
+
+[node name="Chapter1" type="Area2D" parent="Underworld"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Underworld/Chapter1"]
+position = Vector2(2048, 0)
+shape = SubResource("RectangleShape2D_q4vx1")
+
+[node name="Spawn_U1" type="Node2D" parent="Underworld/Chapter1"]
+
+[node name="Chapter2" type="Area2D" parent="Underworld"]
+position = Vector2(4096, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Underworld/Chapter2"]
+position = Vector2(2048, 0)
+shape = SubResource("RectangleShape2D_s7rem")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Underworld/Chapter2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Underworld/Chapter2/StaticBody2D"]
+position = Vector2(100, 0)
+shape = SubResource("RectangleShape2D_7h74e")
+
+[node name="Spawn_U2" type="Node2D" parent="Underworld/Chapter2"]
+position = Vector2(210, 0)
+
+[node name="Chapter3" type="Area2D" parent="Underworld"]
+position = Vector2(8192, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Underworld/Chapter3"]
+position = Vector2(2048, 0)
+shape = SubResource("RectangleShape2D_qydlo")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Underworld/Chapter3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Underworld/Chapter3/StaticBody2D"]
+position = Vector2(100, 0)
+shape = SubResource("RectangleShape2D_j6tj2")
+
+[node name="Spawn_U3" type="Node2D" parent="Underworld/Chapter3"]
+position = Vector2(210, 0)
