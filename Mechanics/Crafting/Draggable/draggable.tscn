@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhh0pot6iaaxv"]
+
+[ext_resource type="Texture2D" uid="uid://cgi83bss6t4fn" path="res://icon.svg" id="1_5l77g"]
+[ext_resource type="Script" path="res://Mechanics/Crafting/Draggable/draggable.gd" id="1_mq4mg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7dinh"]
+size = Vector2(128, 128)
+
+[node name="Draggable" type="RigidBody2D" groups=["parts"]]
+collision_layer = 8
+collision_mask = 0
+input_pickable = true
+gravity_scale = 0.0
+script = ExtResource("1_mq4mg")
+
+[node name="Detection" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7dinh")
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture = ExtResource("1_5l77g")
+
+[node name="Mouse_Detection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mouse_Detection"]
+visible = false
+shape = SubResource("RectangleShape2D_7dinh")
+
+[connection signal="input_event" from="Mouse_Detection" to="." method="_on_mouse_detection_input_event"]
+[connection signal="mouse_entered" from="Mouse_Detection" to="." method="_on_mouse_detection_mouse_entered"]
+[connection signal="mouse_exited" from="Mouse_Detection" to="." method="_on_mouse_detection_mouse_exited"]
