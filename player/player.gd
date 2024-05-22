@@ -6,6 +6,8 @@ var clicked_pos = Vector2()
 var target_position = Vector2()
 var moba:bool = true
 
+var race:String = "demon"
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	clicked_pos = position
