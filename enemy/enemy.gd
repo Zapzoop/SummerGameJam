@@ -92,7 +92,7 @@ func create_vampire():
 	
 func deactivate_hitboxes():
 	var children = get_children()
-	for c in range(3,len(children)):
+	for c in range(4,len(children)):
 		if children[c].name != race+"_ability1_range" or race+"_ability2_range":
 			children[c].monitoring = false
 		
