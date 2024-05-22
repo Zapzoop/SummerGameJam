@@ -11,7 +11,7 @@ func _process(delta):
 	pass
 
 func click():
-	while Input.is_action_pressed("mouse_left"):
+	while Input.is_action_pressed("left_mouse"):
 		show()
 		position = get_global_mouse_position()
 	hide()

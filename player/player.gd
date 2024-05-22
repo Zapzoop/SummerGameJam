@@ -22,7 +22,7 @@ func _process(delta):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	if moba:
-		if Input.is_action_just_pressed("mouse_left"):
+		if Input.is_action_just_pressed("left_mouse"):
 			clicked_pos = get_global_mouse_position()
 		if position.distance_to(clicked_pos) > 3:
 			target_position = (clicked_pos - position).normalized()
