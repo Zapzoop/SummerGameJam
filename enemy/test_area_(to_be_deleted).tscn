@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cd2xqroumbsdp"]
+
+[ext_resource type="PackedScene" uid="uid://dp0oqek1f8tut" path="res://enemy/enemy.tscn" id="1_d5dy0"]
+[ext_resource type="PackedScene" uid="uid://b123ot183yulk" path="res://player/player.tscn" id="2_82yy2"]
+
+[node name="test_area" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("2_82yy2")]
+collision_layer = 3
+
+[node name="enemy" parent="." instance=ExtResource("1_d5dy0")]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 566.0
+offset_top = 144.0
+offset_right = 606.0
+offset_bottom = 184.0

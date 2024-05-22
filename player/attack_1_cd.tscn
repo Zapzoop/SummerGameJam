@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnmayuw00elph"]
+
+[ext_resource type="Texture2D" uid="uid://cgi83bss6t4fn" path="res://icon.svg" id="1_t68ce"]
+[ext_resource type="Script" path="res://player/attack_cd.gd" id="2_4w7n0"]
+
+[node name="attack1_cd" type="Sprite2D"]
+position = Vector2(478, -223)
+scale = Vector2(0.28125, 0.320313)
+texture = ExtResource("1_t68ce")
+script = ExtResource("2_4w7n0")
+
+[node name="cd" type="Label" parent="."]
+offset_left = -21.3334
+offset_top = -46.8292
+offset_right = 64.6666
+offset_bottom = 44.1708
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 66
+text = "1"
+
+[node name="timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
