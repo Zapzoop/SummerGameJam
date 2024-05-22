@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://b123ot183yulk"]
 
-[ext_resource type="Script" path="res://player/player.gd" id="1_qs265"]
+[ext_resource type="Script" path="res://Player/player.gd" id="1_qs265"]
 [ext_resource type="Texture2D" uid="uid://cgi83bss6t4fn" path="res://icon.svg" id="2_nkfu1"]
-[ext_resource type="PackedScene" uid="uid://bnmayuw00elph" path="res://player/attack_1_cd.tscn" id="3_r40ni"]
+[ext_resource type="PackedScene" uid="uid://bnmayuw00elph" path="res://Player/attack_1_cd.tscn" id="3_r40ni"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ysubx"]
 radius = 17.0
