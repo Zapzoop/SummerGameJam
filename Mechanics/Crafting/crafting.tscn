@@ -1,9 +1,180 @@
-[gd_scene load_steps=3 format=3 uid="uid://d00hq8mad4jt6"]
+[gd_scene load_steps=18 format=3 uid="uid://d00hq8mad4jt6"]
 
 [ext_resource type="Texture2D" uid="uid://cgi83bss6t4fn" path="res://icon.svg" id="1_fdof8"]
 [ext_resource type="Script" path="res://Mechanics/Crafting/crafting.gd" id="1_gxedk"]
+[ext_resource type="Script" path="res://Mechanics/Crafting/Physics.gd" id="3_i3bcp"]
 
-[node name="Crafting" type="Control"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mycem"]
+size = Vector2(32, 1016)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uakrj"]
+size = Vector2(32, 1024)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8rbye"]
+size = Vector2(40, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6k5mx"]
+size = Vector2(40, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t7ifd"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r3jjg"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fjdb8"]
+size = Vector2(128, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ymaeh"]
+size = Vector2(128, 36)
+
+[sub_resource type="Animation" id="Animation_ybelx"]
+resource_name = "L_Hand-Body"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Crafting/Hand1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(216, 224), Vector2(272, 224)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Crafting/Hand1:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(128.001, 128)]
+}
+
+[sub_resource type="Animation" id="Animation_3vypd"]
+resource_name = "R_Hand-Body"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Crafting/Hand2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(576, 224), Vector2(512, 224)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Crafting/Hand2:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(128.001, 128.001)]
+}
+
+[sub_resource type="Animation" id="Animation_6ric5"]
+resource_name = "Head-Body"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Crafting/Head:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(424, 120), Vector2(424, 168)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Crafting/Head:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(128, 128)]
+}
+
+[sub_resource type="Animation" id="Animation_8wk34"]
+resource_name = "L_Leg-Body"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Crafting/Leg1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(400, 400), Vector2(400, 344)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Crafting/Leg1:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(133, 128)]
+}
+
+[sub_resource type="Animation" id="Animation_frhgi"]
+resource_name = "R_Leg-Body"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Crafting/Leg2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(480, 400), Vector2(480, 344)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Crafting/Leg2:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(133, 128)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tibu7"]
+_data = {
+"Head-Body": SubResource("Animation_6ric5"),
+"L_Hand-Body": SubResource("Animation_ybelx"),
+"L_Leg-Body": SubResource("Animation_8wk34"),
+"R_Hand-Body": SubResource("Animation_3vypd"),
+"R_Leg-Body": SubResource("Animation_frhgi")
+}
+
+[node name="Node" type="Node"]
+
+[node name="Crafting" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,99 +185,106 @@ mouse_filter = 2
 script = ExtResource("1_gxedk")
 metadata/_edit_use_anchors_ = true
 
-[node name="Bg" type="ColorRect" parent="."]
+[node name="Bg" type="ColorRect" parent="Crafting"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Leg1" type="TextureRect" parent="."]
-layout_mode = 0
-anchor_left = 0.4375
-anchor_top = 0.530864
-anchor_right = 0.470833
-anchor_bottom = 0.728395
-offset_right = 89.6
+[node name="Leg1" type="TextureRect" parent="Crafting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.347222
+anchor_top = 0.617284
+anchor_right = 0.381858
+anchor_bottom = 0.814815
+offset_right = 93.1
+offset_bottom = 6.10352e-05
 scale = Vector2(0.3, 1)
 texture = ExtResource("1_fdof8")
 metadata/_edit_use_anchors_ = true
 
-[node name="Leg2" type="TextureRect" parent="."]
-layout_mode = 0
-anchor_left = 0.493056
+[node name="Leg2" type="TextureRect" parent="Crafting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.416667
 anchor_top = 0.530864
-anchor_right = 0.526389
+anchor_right = 0.451302
 anchor_bottom = 0.728395
-offset_right = 89.6
+offset_top = 56.0
+offset_right = 93.1
+offset_bottom = 55.9999
 scale = Vector2(0.3, 1)
 texture = ExtResource("1_fdof8")
 metadata/_edit_use_anchors_ = true
 
-[node name="Body" type="TextureRect" parent="."]
-layout_mode = 0
-anchor_left = 0.423611
+[node name="Body" type="TextureRect" parent="Crafting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.340278
 anchor_top = 0.345679
-anchor_right = 0.534722
+anchor_right = 0.451389
 anchor_bottom = 0.54321
 offset_bottom = 3.05176e-05
 texture = ExtResource("1_fdof8")
 metadata/_edit_use_anchors_ = true
 
-[node name="Hand1" type="TextureRect" parent="."]
-layout_mode = 0
-anchor_left = 0.347222
-anchor_top = 0.37434
-anchor_right = 0.446342
-anchor_bottom = 0.37434
-offset_top = 69.4279
-offset_right = 13.8145
-offset_bottom = 197.428
-rotation = -0.837758
-scale = Vector2(1, 0.3)
-texture = ExtResource("1_fdof8")
-metadata/_edit_use_anchors_ = true
-
-[node name="Hand2" type="TextureRect" parent="."]
+[node name="Hand1" type="TextureRect" parent="Crafting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.534722
-anchor_top = 0.333333
-anchor_right = 0.584299
-anchor_bottom = 0.51978
-offset_right = 70.8881
-offset_bottom = 7.18283
-rotation = 0.837758
+anchor_left = 0.1875
+anchor_top = 0.345679
+anchor_right = 0.298612
+anchor_bottom = 0.404938
+offset_right = -3.05176e-05
+offset_bottom = 89.6
 scale = Vector2(1, 0.3)
 texture = ExtResource("1_fdof8")
 metadata/_edit_use_anchors_ = true
 
-[node name="Head" type="TextureRect" parent="."]
-layout_mode = 0
-anchor_left = 0.451389
-anchor_top = 0.246914
-anchor_right = 0.506944
-anchor_bottom = 0.345679
-offset_right = 64.0
+[node name="Hand2" type="TextureRect" parent="Crafting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.333333
+anchor_right = 0.611112
+anchor_bottom = 0.392593
+offset_top = 8.0002
+offset_bottom = 97.6006
+scale = Vector2(1, 0.3)
+texture = ExtResource("1_fdof8")
+metadata/_edit_use_anchors_ = true
+
+[node name="Head" type="TextureRect" parent="Crafting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.368056
+anchor_top = 0.185185
+anchor_right = 0.423611
+anchor_bottom = 0.283951
+offset_right = 64.0002
 offset_bottom = 64.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_fdof8")
 metadata/_edit_use_anchors_ = true
 
-[node name="SidePanel" type="ColorRect" parent="."]
+[node name="SidePanel" type="ColorRect" parent="Crafting"]
 layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
+anchors_preset = -1
+anchor_left = 0.770833
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -264.0
 grow_horizontal = 0
 grow_vertical = 2
+mouse_filter = 1
 color = Color(0.446777, 0.446777, 0.446777, 1)
+metadata/_edit_use_anchors_ = true
 
-[node name="Leg1_Inventory" type="TextureRect" parent="."]
+[node name="Leg1_Inventory" type="TextureRect" parent="Crafting"]
 modulate = Color(0, 1, 0, 1)
 layout_mode = 0
 anchor_left = 0.798611
@@ -118,7 +296,7 @@ scale = Vector2(0.3, 1)
 texture = ExtResource("1_fdof8")
 metadata/_edit_use_anchors_ = true
 
-[node name="Leg1_Button" type="Button" parent="Leg1_Inventory"]
+[node name="Leg1_Button" type="Button" parent="Crafting/Leg1_Inventory"]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
@@ -126,9 +304,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Leg2_Inventory" type="TextureRect" parent="."]
+[node name="Leg2_Inventory" type="TextureRect" parent="Crafting"]
 modulate = Color(0, 1, 0, 1)
 layout_mode = 0
 anchor_left = 0.923611
@@ -140,7 +319,7 @@ scale = Vector2(0.3, 1)
 texture = ExtResource("1_fdof8")
 metadata/_edit_use_anchors_ = true
 
-[node name="Leg2_Button" type="Button" parent="Leg2_Inventory"]
+[node name="Leg2_Button" type="Button" parent="Crafting/Leg2_Inventory"]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
@@ -148,9 +327,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Body_Inventory" type="TextureRect" parent="."]
+[node name="Body_Inventory" type="TextureRect" parent="Crafting"]
 modulate = Color(0, 1, 0, 1)
 layout_mode = 0
 anchor_left = 0.784722
@@ -160,7 +340,7 @@ anchor_bottom = 0.666667
 texture = ExtResource("1_fdof8")
 metadata/_edit_use_anchors_ = true
 
-[node name="Body_Button" type="Button" parent="Body_Inventory"]
+[node name="Body_Button" type="Button" parent="Crafting/Body_Inventory"]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
@@ -168,9 +348,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Hand1_Inventory" type="TextureRect" parent="."]
+[node name="Hand1_Inventory" type="TextureRect" parent="Crafting"]
 modulate = Color(0, 1, 0, 1)
 layout_mode = 0
 anchor_left = 0.777778
@@ -182,7 +363,7 @@ scale = Vector2(1, 0.3)
 texture = ExtResource("1_fdof8")
 metadata/_edit_use_anchors_ = true
 
-[node name="Hand1_Button" type="Button" parent="Hand1_Inventory"]
+[node name="Hand1_Button" type="Button" parent="Crafting/Hand1_Inventory"]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
@@ -190,9 +371,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Hand2_Inventory" type="TextureRect" parent="."]
+[node name="Hand2_Inventory" type="TextureRect" parent="Crafting"]
 modulate = Color(0, 1, 0, 1)
 layout_mode = 0
 anchor_left = 0.777778
@@ -205,7 +387,7 @@ scale = Vector2(1, 0.3)
 texture = ExtResource("1_fdof8")
 metadata/_edit_use_anchors_ = true
 
-[node name="Hand2_Button" type="Button" parent="Hand2_Inventory"]
+[node name="Hand2_Button" type="Button" parent="Crafting/Hand2_Inventory"]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
@@ -213,9 +395,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Head_Inventory" type="TextureRect" parent="."]
+[node name="Head_Inventory" type="TextureRect" parent="Crafting"]
 modulate = Color(0, 1, 0, 1)
 layout_mode = 0
 anchor_left = 0.819444
@@ -228,7 +411,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_fdof8")
 metadata/_edit_use_anchors_ = true
 
-[node name="Head_Button" type="Button" parent="Head_Inventory"]
+[node name="Head_Button" type="Button" parent="Crafting/Head_Inventory"]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
@@ -236,69 +419,173 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Head_Count" type="Label" parent="."]
+[node name="Head_Count" type="Label" parent="Crafting"]
 layout_mode = 0
 anchor_left = 0.888889
 anchor_top = 0.0493827
 anchor_right = 0.927951
 anchor_bottom = 0.0848765
 offset_right = -5.0
+mouse_filter = 1
 text = "Head:"
 metadata/_edit_use_anchors_ = true
 
-[node name="Hand1_Count" type="Label" parent="."]
+[node name="Hand1_Count" type="Label" parent="Crafting"]
 layout_mode = 0
 anchor_left = 0.902778
 anchor_top = 0.209877
 anchor_right = 0.972222
 anchor_bottom = 0.24537
 offset_right = -40.0
+mouse_filter = 1
 text = "Left Hand:"
 metadata/_edit_use_anchors_ = true
 
-[node name="Hand2_Count" type="Label" parent="."]
+[node name="Hand2_Count" type="Label" parent="Crafting"]
 layout_mode = 0
 anchor_left = 0.895833
 anchor_top = 0.320988
 anchor_right = 0.978299
 anchor_bottom = 0.356481
 offset_top = 1.52588e-05
+mouse_filter = 1
 text = "Right Hand: "
 metadata/_edit_use_anchors_ = true
 
-[node name="Body_Count" type="Label" parent="."]
+[node name="Body_Count" type="Label" parent="Crafting"]
 layout_mode = 0
 anchor_left = 0.902778
 anchor_top = 0.54321
 anchor_right = 0.940972
 anchor_bottom = 0.578704
 offset_top = 3.05176e-05
+mouse_filter = 1
 text = "Body:"
 metadata/_edit_use_anchors_ = true
 
-[node name="Leg1_Count" type="Label" parent="."]
+[node name="Leg1_Count" type="Label" parent="Crafting"]
 layout_mode = 0
 anchor_left = 0.784722
 anchor_top = 0.728395
 anchor_right = 0.842014
 anchor_bottom = 0.763889
+mouse_filter = 1
 text = "Left Leg:"
 metadata/_edit_use_anchors_ = true
 
-[node name="Leg2_Count" type="Label" parent="."]
+[node name="Leg2_Count" type="Label" parent="Crafting"]
 layout_mode = 0
 anchor_left = 0.902778
 anchor_top = 0.728395
 anchor_right = 0.971354
 anchor_bottom = 0.763889
+mouse_filter = 1
 text = "Right_Leg:"
 metadata/_edit_use_anchors_ = true
 
-[connection signal="button_down" from="Leg1_Inventory/Leg1_Button" to="." method="_on_leg_1_button_button_down"]
-[connection signal="button_down" from="Leg2_Inventory/Leg2_Button" to="." method="_on_leg_2_button_button_down"]
-[connection signal="button_down" from="Body_Inventory/Body_Button" to="." method="_on_body_button_button_down"]
-[connection signal="button_down" from="Hand1_Inventory/Hand1_Button" to="." method="_on_hand_1_button_button_down"]
-[connection signal="button_down" from="Hand2_Inventory/Hand2_Button" to="." method="_on_hand_2_button_button_down"]
-[connection signal="button_down" from="Head_Inventory/Head_Button" to="." method="_on_head_button_button_down"]
+[node name="Physics" type="Node2D" parent="."]
+script = ExtResource("3_i3bcp")
+
+[node name="Needle" type="RigidBody2D" parent="Physics"]
+position = Vector2(144, 1000)
+input_pickable = true
+gravity_scale = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Physics/Needle"]
+scale = Vector2(0.3, 8)
+texture = ExtResource("1_fdof8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Physics/Needle"]
+shape = SubResource("RectangleShape2D_mycem")
+
+[node name="Mouse" type="Area2D" parent="Physics/Needle"]
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Physics/Needle/Mouse"]
+shape = SubResource("RectangleShape2D_uakrj")
+
+[node name="Leg1" type="Area2D" parent="Physics"]
+position = Vector2(400, 400)
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Physics/Leg1"]
+position = Vector2(20, 64)
+shape = SubResource("RectangleShape2D_8rbye")
+
+[node name="Leg2" type="Area2D" parent="Physics"]
+position = Vector2(480, 400)
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Physics/Leg2"]
+position = Vector2(20, 64)
+shape = SubResource("RectangleShape2D_6k5mx")
+
+[node name="Head" type="Area2D" parent="Physics"]
+position = Vector2(424, 120)
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Physics/Head"]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_t7ifd")
+
+[node name="Body" type="Area2D" parent="Physics"]
+position = Vector2(392, 224)
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Physics/Body"]
+position = Vector2(64, 64)
+shape = SubResource("RectangleShape2D_r3jjg")
+
+[node name="Hand1" type="Area2D" parent="Physics"]
+position = Vector2(216, 224)
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Physics/Hand1"]
+position = Vector2(64, 20)
+shape = SubResource("RectangleShape2D_fjdb8")
+
+[node name="Hand2" type="Area2D" parent="Physics"]
+position = Vector2(576, 232)
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Physics/Hand2"]
+position = Vector2(64, 10)
+shape = SubResource("RectangleShape2D_ymaeh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tibu7")
+}
+
+[connection signal="item_rect_changed" from="Crafting/Leg1" to="Crafting" method="_on_leg_1_item_rect_changed"]
+[connection signal="item_rect_changed" from="Crafting/Leg2" to="Crafting" method="_on_leg_2_item_rect_changed"]
+[connection signal="item_rect_changed" from="Crafting/Body" to="Crafting" method="_on_body_item_rect_changed"]
+[connection signal="item_rect_changed" from="Crafting/Hand1" to="Crafting" method="_on_hand_1_item_rect_changed"]
+[connection signal="item_rect_changed" from="Crafting/Hand2" to="Crafting" method="_on_hand_2_item_rect_changed"]
+[connection signal="item_rect_changed" from="Crafting/Head" to="Crafting" method="_on_head_item_rect_changed"]
+[connection signal="button_down" from="Crafting/Leg1_Inventory/Leg1_Button" to="Crafting" method="_on_leg_1_button_button_down"]
+[connection signal="button_down" from="Crafting/Leg2_Inventory/Leg2_Button" to="Crafting" method="_on_leg_2_button_button_down"]
+[connection signal="button_down" from="Crafting/Body_Inventory/Body_Button" to="Crafting" method="_on_body_button_button_down"]
+[connection signal="button_down" from="Crafting/Hand1_Inventory/Hand1_Button" to="Crafting" method="_on_hand_1_button_button_down"]
+[connection signal="button_down" from="Crafting/Hand2_Inventory/Hand2_Button" to="Crafting" method="_on_hand_2_button_button_down"]
+[connection signal="button_down" from="Crafting/Head_Inventory/Head_Button" to="Crafting" method="_on_head_button_button_down"]
+[connection signal="body_entered" from="Physics/Needle" to="Physics" method="_on_needle_body_entered"]
+[connection signal="body_entered" from="Physics/Needle/Mouse" to="Physics" method="_on_mouse_body_entered"]
+[connection signal="body_exited" from="Physics/Needle/Mouse" to="Physics" method="_on_mouse_body_exited"]
+[connection signal="mouse_entered" from="Physics/Needle/Mouse" to="Physics" method="_on_mouse_mouse_entered"]
+[connection signal="mouse_exited" from="Physics/Needle/Mouse" to="Physics" method="_on_mouse_mouse_exited"]
+[connection signal="body_entered" from="Physics/Leg1" to="Physics" method="_on_leg_1_body_entered"]
+[connection signal="body_exited" from="Physics/Leg1" to="Physics" method="_on_leg_1_body_exited"]
+[connection signal="body_entered" from="Physics/Leg2" to="Physics" method="_on_leg_2_body_entered"]
+[connection signal="body_exited" from="Physics/Leg2" to="Physics" method="_on_leg_2_body_exited"]
+[connection signal="body_entered" from="Physics/Head" to="Physics" method="_on_head_body_entered"]
+[connection signal="body_exited" from="Physics/Head" to="Physics" method="_on_head_body_exited"]
+[connection signal="body_entered" from="Physics/Body" to="Physics" method="_on_body_body_entered"]
+[connection signal="body_exited" from="Physics/Body" to="Physics" method="_on_body_body_exited"]
+[connection signal="body_entered" from="Physics/Hand1" to="Physics" method="_on_hand_1_body_entered"]
+[connection signal="body_exited" from="Physics/Hand1" to="Physics" method="_on_hand_1_body_exited"]
+[connection signal="body_entered" from="Physics/Hand2" to="Physics" method="_on_hand_2_body_entered"]
+[connection signal="body_exited" from="Physics/Hand2" to="Physics" method="_on_hand_2_body_exited"]
