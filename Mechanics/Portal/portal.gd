@@ -43,8 +43,6 @@ func _input(event):
 		click_pos.append(corrected - y_offset)
 		queue_redraw()
 	
-	
-
 func _draw():
 	if can_draw and corrected != null:
 		for point in click_pos:
@@ -131,15 +129,10 @@ func dot_decider():
 			7:
 				seventh.show()
 	
-	print(visible_node)
 	visible_node = remove_duplicates(visible_node)
 	visible_node.sort()
-	print(visible_node)
-	# print([1, 2, 3].filter(func(number): return number != 1)) # Same as above, but using lambda function.
-	#print(grp1_numbers)
-	#print(grp2_numbers)
-	#print(grp3_numbers)
-# Called when the node enters the scene tree for the first time.
+	#print(visible_node)
+
 func _ready():
 	dot_decider() # Replace with function body.
 
@@ -175,6 +168,13 @@ func obj_to_number(obj):
 		ninth:
 			return 9
 
+func check_pair():
+	if line_pos.size() == visible_node.size():
+		print("Portal completed")
+		Autoload.portal_completed()
+		Autoload.close_screen_portal()
+		##Add funcion to do after portal completed
+
 func draw_line_2d():
 	var start_parent = start.get_parent()
 	var end_parent = end.get_parent()
@@ -185,21 +185,19 @@ func draw_line_2d():
 	var test_num = visible_node.find(number_start)
 	if test_num+1 == visible_node.size():
 		if number_end == visible_node[0]:
-			print("Not valid pair")
 			var pair = [start.global_position,end.global_position]
 			line_pos.append(pair)
+			check_pair()
 	elif visible_node[test_num + 1] == number_end:
-		print("Not valid pair")
 		var pair = [start.global_position,end.global_position]
 		line_pos.append(pair)
+		check_pair()
 		
 	
 	can_draw = false
 	clear_draw = true
 	click_pos.clear()
-
 	queue_redraw()
-	#draw_line(start.global_position,end.global_position,Color(1,0,0,1),-1,true)
 	start = null
 	end = null
 	clear_draw = false
@@ -210,7 +208,6 @@ func _on_one_d_area_entered(area):
 	if parent.visible == false:
 		return
 	can_draw = true
-	print("1 made true")
 	if start == null:
 		start = node
 	elif start != self and end == null:
@@ -223,7 +220,6 @@ func _on_two_d_area_entered(area):
 	if parent.visible == false:
 		return
 	can_draw = true
-	print("2 made true")
 	if start == null:
 		start = node
 	elif start != self and end == null:
@@ -237,9 +233,9 @@ func _on_three_d_area_entered(area):
 	if parent.visible == false:
 		return
 	can_draw = true
-	print("3 made true")
 	if start == null:
-		start = node
+		start = node	
+
 	elif start != self and end == null:
 		end = node
 		draw_line_2d()
@@ -251,7 +247,6 @@ func _on_forth_d_area_entered(area):
 	if parent.visible == false:
 		return
 	can_draw = true
-	print("4 made true")
 	if start == null:
 		start = node
 	elif start != self and end == null:
@@ -265,7 +260,6 @@ func _on_fifth_d_area_entered(area):
 	if parent.visible == false:
 		return
 	can_draw = true
-	print("5 made true")
 	if start == null:
 		start = node
 	elif start != self and end == null:
@@ -278,7 +272,6 @@ func _on_sixth_d_area_entered(area):
 	if parent.visible == false:
 		return
 	can_draw = true
-	print("6 made true")
 	if start == null:
 		start = node
 	elif start != self and end == null:
@@ -292,7 +285,6 @@ func _on_seventh_d_area_entered(area):
 	if parent.visible == false:
 		return
 	can_draw = true
-	print("7 made true")
 	if start == null:
 		start = node
 	elif start != self and end == null:
@@ -305,7 +297,6 @@ func _on_eighth_d_area_entered(area):
 	if parent.visible == false:
 		return
 	can_draw = true
-	print("8 made true")
 	if start == null:
 		start = node
 	elif start != self and end == null:
@@ -319,7 +310,6 @@ func _on_ninth_d_area_entered(area):
 	if parent.visible == false:
 		return
 	can_draw = true
-	print("9 made true")
 	if start == null:
 		start = node
 	elif start != self and end == null:
@@ -329,3 +319,7 @@ func _on_ninth_d_area_entered(area):
 
 
 
+
+
+func _on_button_pressed():
+	Autoload.close_screen_portal()

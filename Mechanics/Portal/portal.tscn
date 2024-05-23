@@ -183,6 +183,7 @@ scale = Vector2(0.3, 8)
 texture = ExtResource("4_h6psy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Needle"]
+visible = false
 shape = SubResource("RectangleShape2D_ruqtt")
 
 [node name="Mouse" type="Area2D" parent="Needle"]
@@ -195,6 +196,22 @@ shape = SubResource("RectangleShape2D_s7311")
 
 [node name="RayCast2D" type="RayCast2D" parent="Needle/Mouse"]
 
+[node name="Cross" type="Sprite2D" parent="."]
+position = Vector2(40, 48)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_h6psy")
+
+[node name="Button" type="Button" parent="Cross"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -64.0
+offset_right = -64.0
+offset_bottom = -64.0
+metadata/_edit_use_anchors_ = true
+
 [connection signal="area_entered" from="1/OneD" to="." method="_on_one_d_area_entered"]
 [connection signal="area_entered" from="2/TwoD" to="." method="_on_two_d_area_entered"]
 [connection signal="area_entered" from="3/ThreeD" to="." method="_on_three_d_area_entered"]
@@ -206,3 +223,4 @@ shape = SubResource("RectangleShape2D_s7311")
 [connection signal="area_entered" from="9/NinthD" to="." method="_on_ninth_d_area_entered"]
 [connection signal="mouse_entered" from="Needle/Mouse" to="." method="_on_mouse_mouse_entered"]
 [connection signal="mouse_exited" from="Needle/Mouse" to="." method="_on_mouse_mouse_exited"]
+[connection signal="pressed" from="Cross/Button" to="." method="_on_button_pressed"]
