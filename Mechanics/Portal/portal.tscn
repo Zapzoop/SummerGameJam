@@ -1,0 +1,208 @@
+[gd_scene load_steps=16 format=3 uid="uid://btquwadfqhfp4"]
+
+[ext_resource type="Texture2D" uid="uid://dkgqhuue0yls8" path="res://temp.jpg" id="1_7rkux"]
+[ext_resource type="Script" path="res://Mechanics/Portal/portal.gd" id="1_ubbkk"]
+[ext_resource type="Texture2D" uid="uid://bffduaaagoacb" path="res://dot.png" id="2_vam27"]
+[ext_resource type="Texture2D" uid="uid://cgi83bss6t4fn" path="res://icon.svg" id="4_h6psy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2th8o"]
+radius = 17.8885
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sfmf7"]
+radius = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_45h8e"]
+radius = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_11fgc"]
+radius = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mvahr"]
+radius = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l01ty"]
+radius = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nnyhj"]
+radius = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j14is"]
+radius = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5wt7g"]
+radius = 16.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ruqtt"]
+size = Vector2(32, 1016)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7311"]
+size = Vector2(32, 80)
+
+[node name="Portal" type="Node2D"]
+script = ExtResource("1_ubbkk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(576, 324)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_7rkux")
+
+[node name="1" type="Node2D" parent="."]
+visible = false
+position = Vector2(608, 88)
+
+[node name="Dot" type="Sprite2D" parent="1"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_vam27")
+
+[node name="OneD" type="Area2D" parent="1"]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="1/OneD"]
+shape = SubResource("CircleShape2D_2th8o")
+
+[node name="2" type="Node2D" parent="."]
+visible = false
+position = Vector2(792, 176)
+
+[node name="Dot" type="Sprite2D" parent="2"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_vam27")
+
+[node name="TwoD" type="Area2D" parent="2"]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="2/TwoD"]
+shape = SubResource("CircleShape2D_sfmf7")
+
+[node name="3" type="Node2D" parent="."]
+visible = false
+position = Vector2(888, 304)
+
+[node name="Dot" type="Sprite2D" parent="3"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_vam27")
+
+[node name="ThreeD" type="Area2D" parent="3"]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="3/ThreeD"]
+shape = SubResource("CircleShape2D_45h8e")
+
+[node name="4" type="Node2D" parent="."]
+visible = false
+position = Vector2(784, 520)
+
+[node name="Dot" type="Sprite2D" parent="4"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_vam27")
+
+[node name="ForthD" type="Area2D" parent="4"]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="4/ForthD"]
+shape = SubResource("CircleShape2D_11fgc")
+
+[node name="5" type="Node2D" parent="."]
+visible = false
+position = Vector2(624, 552)
+
+[node name="Dot" type="Sprite2D" parent="5"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_vam27")
+
+[node name="FifthD" type="Area2D" parent="5"]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="5/FifthD"]
+shape = SubResource("CircleShape2D_mvahr")
+
+[node name="6" type="Node2D" parent="."]
+visible = false
+position = Vector2(432, 528)
+
+[node name="Dot" type="Sprite2D" parent="6"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_vam27")
+
+[node name="SixthD" type="Area2D" parent="6"]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="6/SixthD"]
+shape = SubResource("CircleShape2D_l01ty")
+
+[node name="7" type="Node2D" parent="."]
+visible = false
+position = Vector2(360, 376)
+
+[node name="Dot" type="Sprite2D" parent="7"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_vam27")
+
+[node name="SeventhD" type="Area2D" parent="7"]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="7/SeventhD"]
+shape = SubResource("CircleShape2D_nnyhj")
+
+[node name="8" type="Node2D" parent="."]
+visible = false
+position = Vector2(360, 240)
+
+[node name="Dot" type="Sprite2D" parent="8"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_vam27")
+
+[node name="EighthD" type="Area2D" parent="8"]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="8/EighthD"]
+shape = SubResource("CircleShape2D_j14is")
+
+[node name="9" type="Node2D" parent="."]
+visible = false
+position = Vector2(448, 128)
+
+[node name="Dot" type="Sprite2D" parent="9"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_vam27")
+
+[node name="NinthD" type="Area2D" parent="9"]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="9/NinthD"]
+shape = SubResource("CircleShape2D_5wt7g")
+
+[node name="Needle" type="RigidBody2D" parent="."]
+position = Vector2(144, 1000)
+input_pickable = true
+gravity_scale = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Needle"]
+scale = Vector2(0.3, 8)
+texture = ExtResource("4_h6psy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Needle"]
+shape = SubResource("RectangleShape2D_ruqtt")
+
+[node name="Mouse" type="Area2D" parent="Needle"]
+collision_layer = 5
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Needle/Mouse"]
+position = Vector2(0, -472)
+shape = SubResource("RectangleShape2D_s7311")
+
+[node name="RayCast2D" type="RayCast2D" parent="Needle/Mouse"]
+
+[connection signal="area_entered" from="1/OneD" to="." method="_on_one_d_area_entered"]
+[connection signal="area_entered" from="2/TwoD" to="." method="_on_two_d_area_entered"]
+[connection signal="area_entered" from="3/ThreeD" to="." method="_on_three_d_area_entered"]
+[connection signal="area_entered" from="4/ForthD" to="." method="_on_forth_d_area_entered"]
+[connection signal="area_entered" from="5/FifthD" to="." method="_on_fifth_d_area_entered"]
+[connection signal="area_entered" from="6/SixthD" to="." method="_on_sixth_d_area_entered"]
+[connection signal="area_entered" from="7/SeventhD" to="." method="_on_seventh_d_area_entered"]
+[connection signal="area_entered" from="8/EighthD" to="." method="_on_eighth_d_area_entered"]
+[connection signal="area_entered" from="9/NinthD" to="." method="_on_ninth_d_area_entered"]
+[connection signal="mouse_entered" from="Needle/Mouse" to="." method="_on_mouse_mouse_entered"]
+[connection signal="mouse_exited" from="Needle/Mouse" to="." method="_on_mouse_mouse_exited"]

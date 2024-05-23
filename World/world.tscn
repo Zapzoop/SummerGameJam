@@ -121,3 +121,8 @@ shape = SubResource("RectangleShape2D_j6tj2")
 
 [node name="Spawn_U3" type="Node2D" parent="Underworld/Chapter3"]
 position = Vector2(210, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="CanvasLayer"]
+color = Color(0.281187, 0.281187, 0.281187, 1)

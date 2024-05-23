@@ -572,7 +572,6 @@ libraries = {
 [connection signal="button_down" from="Crafting/Hand1_Inventory/Hand1_Button" to="Crafting" method="_on_hand_1_button_button_down"]
 [connection signal="button_down" from="Crafting/Hand2_Inventory/Hand2_Button" to="Crafting" method="_on_hand_2_button_button_down"]
 [connection signal="button_down" from="Crafting/Head_Inventory/Head_Button" to="Crafting" method="_on_head_button_button_down"]
-[connection signal="body_entered" from="Physics/Needle" to="Physics" method="_on_needle_body_entered"]
 [connection signal="body_entered" from="Physics/Needle/Mouse" to="Physics" method="_on_mouse_body_entered"]
 [connection signal="body_exited" from="Physics/Needle/Mouse" to="Physics" method="_on_mouse_body_exited"]
 [connection signal="mouse_entered" from="Physics/Needle/Mouse" to="Physics" method="_on_mouse_mouse_entered"]
