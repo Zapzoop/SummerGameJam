@@ -55,5 +55,4 @@ func _physics_process(delta):
 	move_and_slide()
 
 
-func reparent_me(node):
-	self.reparent(node)
+

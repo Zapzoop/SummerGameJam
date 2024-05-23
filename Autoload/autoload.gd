@@ -24,26 +24,20 @@ func portal_completed():
 	
 	match player_at:
 		"O1":
-			player.reparent_me(underworld)
 			player.global_position = U1.global_position
 			player.whereami = "U1"
 		"O2":
-			player.reparent_me(underworld)
 			player.global_position = U2.global_position
 			player.whereami = "U2"
 		"O3":
-			player.reparent_me(underworld)
 			player.global_position = U3.global_position
 			player.whereami = "U3"
 		"U1":
-			player.reparent_me(overworld)
 			player.global_position = O1.global_position
 			player.whereami = "O1"
 		"U2":
-			player.reparent_me(overworld)
 			player.global_position = O2.global_position
 			player.whereami = "O2"
 		"U3":
-			player.reparent_me(overworld)
 			player.global_position = O3.global_position
 			player.whereami = "O3"

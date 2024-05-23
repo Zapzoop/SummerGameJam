@@ -14,8 +14,10 @@ func _process(delta):
 func close_portal():
 	var node = get_child(-1)
 	node.queue_free()
+	$Portal.show()
 
 func _on_button_pressed():
 	var ins = portal.instantiate()
+	$Portal.hide()
 	self.add_child(ins)
 	
