@@ -70,14 +70,9 @@ func join_parts_check():
 			join_parts()
 	clear_all()
 
-func _on_needle_body_entered(body):
-	pass
-		
-
 func _on_mouse_mouse_entered():
 	inside = true
-
-
+	
 func _on_mouse_mouse_exited():
 	inside = false
 	if !Input.is_action_pressed("left_mouse"):

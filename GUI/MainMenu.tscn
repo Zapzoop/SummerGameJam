@@ -52,4 +52,5 @@ anchor_bottom = 0.888889
 text = "Quit"
 metadata/_edit_use_anchors_ = true
 
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

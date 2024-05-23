@@ -4,13 +4,17 @@ extends CharacterBody2D
 const speed = 300
 var clicked_pos = Vector2()
 var target_position = Vector2()
-var moba:bool = true
+var moba:bool = false
+
+
+var whereami
 
 var race:String = "demon"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	clicked_pos = position
+	Autoload.player = self
 
 func _process(delta):
 	if Input.is_action_just_pressed("attack1") and $attack1_cd.can_attack:
@@ -38,8 +42,7 @@ func _physics_process(delta):
 		elif Input.is_action_pressed("left"):
 			velocity.x = speed * -1
 		elif Input.is_action_pressed("right"):
-			velocity.x = speed 
-		
+			velocity.x = speed
 		else:
 			velocity.x = 0
 			velocity.y = 0
@@ -50,4 +53,6 @@ func _physics_process(delta):
 			velocity.x = 0
 	
 	move_and_slide()
-	
+
+
+
