@@ -13,4 +13,4 @@ func _process(delta):
 
 func _on_button_pressed():
 	if $range.has_overlapping_bodies():
-		get_tree().change_scene_to_file('res://Mechanics/Crafting/crafting.tscn') #to be changed
+		get_tree().change_scene_to_file('res://Mechanics/item_craft/anvill.tscn') #to be changed
