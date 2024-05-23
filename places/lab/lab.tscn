@@ -1,0 +1,91 @@
+[gd_scene load_steps=7 format=3 uid="uid://dqofi1xnavtvp"]
+
+[ext_resource type="PackedScene" uid="uid://b123ot183yulk" path="res://player/player.tscn" id="1_npp6k"]
+[ext_resource type="Script" path="res://places/lab/calderon.gd" id="2_ihp7m"]
+[ext_resource type="Script" path="res://places/lab/blacksmith.gd" id="3_jwt30"]
+[ext_resource type="Script" path="res://places/lab/ritual.gd" id="4_2ehd7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h0wcw"]
+radius = 100.222
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gc2dg"]
+radius = 127.0
+height = 358.0
+
+[node name="lab" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 645.0
+
+[node name="player" parent="." instance=ExtResource("1_npp6k")]
+position = Vector2(578, 316)
+
+[node name="calderon" type="ColorRect" parent="."]
+offset_left = 69.0
+offset_top = 115.0
+offset_right = 143.0
+offset_bottom = 189.0
+color = Color(1, 0.466667, 1, 1)
+script = ExtResource("2_ihp7m")
+
+[node name="range" type="Area2D" parent="calderon"]
+position = Vector2(-69, -115)
+
+[node name="shape" type="CollisionShape2D" parent="calderon/range"]
+position = Vector2(106.5, 153.5)
+shape = SubResource("CircleShape2D_h0wcw")
+
+[node name="button" type="Button" parent="calderon"]
+layout_mode = 0
+offset_right = 76.0
+offset_bottom = 75.0
+flat = true
+
+[node name="blacksmith" type="ColorRect" parent="."]
+offset_left = 950.0
+offset_top = 223.0
+offset_right = 1056.0
+offset_bottom = 422.0
+color = Color(1, 1, 0.219608, 1)
+script = ExtResource("3_jwt30")
+
+[node name="range" type="Area2D" parent="blacksmith"]
+position = Vector2(-69, -115)
+
+[node name="shape" type="CollisionShape2D" parent="blacksmith/range"]
+position = Vector2(124, 209)
+shape = SubResource("CapsuleShape2D_gc2dg")
+
+[node name="button" type="Button" parent="blacksmith"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 1.0
+offset_right = 110.0
+offset_bottom = 201.0
+flat = true
+
+[node name="ritual" type="ColorRect" parent="."]
+offset_left = 55.0
+offset_top = 425.0
+offset_right = 138.0
+offset_bottom = 507.0
+color = Color(0.340339, 0.340339, 0.340339, 1)
+script = ExtResource("4_2ehd7")
+
+[node name="range" type="Area2D" parent="ritual"]
+position = Vector2(-69, -115)
+
+[node name="shape" type="CollisionShape2D" parent="ritual/range"]
+position = Vector2(110, 160)
+shape = SubResource("CircleShape2D_h0wcw")
+
+[node name="button" type="Button" parent="ritual"]
+layout_mode = 0
+offset_right = 85.0
+offset_bottom = 85.0
+flat = true
+
+[connection signal="pressed" from="calderon/button" to="calderon" method="_on_button_pressed"]
+[connection signal="pressed" from="blacksmith/button" to="blacksmith" method="_on_button_pressed"]
+[connection signal="pressed" from="ritual/button" to="ritual" method="_on_button_pressed"]
