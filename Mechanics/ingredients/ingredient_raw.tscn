@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=3 uid="uid://c1dwv1nhfk2gk"]
+
+[ext_resource type="Texture2D" uid="uid://cgi83bss6t4fn" path="res://icon.svg" id="1_nkftl"]
+[ext_resource type="Script" path="res://Mechanics/ingredients/ingredient.gd" id="2_jxes1"]
+[ext_resource type="PackedScene" uid="uid://b123ot183yulk" path="res://Player/player.tscn" id="3_jtw4b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7kphb"]
+radius = 139.474
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yc7rd"]
+size = Vector2(98, 99)
+
+[sub_resource type="Animation" id="Animation_yn1wr"]
+resource_name = "add"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-2, -120)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ay87m"]
+_data = {
+"add": SubResource("Animation_yn1wr")
+}
+
+[node name="ingredient_raw" type="Sprite2D"]
+texture = ExtResource("1_nkftl")
+script = ExtResource("2_jxes1")
+
+[node name="range" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="range"]
+position = Vector2(-2, -1)
+shape = SubResource("CircleShape2D_7kphb")
+
+[node name="hitbox" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_yc7rd")
+
+[node name="adder" type="Node2D" parent="."]
+position = Vector2(-2, -120)
+
+[node name="label" type="Label" parent="adder"]
+visible = false
+offset_left = -55.0
+offset_top = -28.0
+offset_right = 48.0
+offset_bottom = 8.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+text = "+3 grass"
+
+[node name="anim" type="AnimationPlayer" parent="adder"]
+libraries = {
+"": SubResource("AnimationLibrary_ay87m")
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = -40.0
+offset_top = -182.0
+offset_right = 36.0
+offset_bottom = -101.0
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = -4.0
+offset_right = 61.0
+offset_bottom = 79.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "X"
+
+[node name="player" parent="." instance=ExtResource("3_jtw4b")]
+
+[connection signal="body_entered" from="range" to="." method="_on_range_body_entered"]
+[connection signal="body_exited" from="range" to="." method="_on_range_body_exited"]
