@@ -4,15 +4,22 @@ extends CharacterBody2D
 const speed = 300
 var clicked_pos = Vector2()
 var target_position = Vector2()
+var moba:bool = false
+
+var whereami
 
 var race:String = "demon"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	clicked_pos = position
+
 	if get_parent().name == "lab":
 		$attack1_cd.hide()
 		$attack2_cd.hide()
+
+	Autoload.player = self
+
 
 func _process(delta):
 	if get_parent().name != "lab":
@@ -24,6 +31,7 @@ func _process(delta):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+
 
 	if Input.is_action_pressed("up"):
 		velocity.x = 0
@@ -48,4 +56,6 @@ func _physics_process(delta):
 		velocity.x = 0
 	
 	move_and_slide()
-	
+
+
+
