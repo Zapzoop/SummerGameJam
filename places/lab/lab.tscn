@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dqofi1xnavtvp"]
 
-[ext_resource type="PackedScene" uid="uid://b123ot183yulk" path="res://player/player.tscn" id="1_npp6k"]
+[ext_resource type="PackedScene" uid="uid://b123ot183yulk" path="res://Player/player.tscn" id="1_npp6k"]
 [ext_resource type="Script" path="res://places/lab/calderon.gd" id="2_ihp7m"]
 [ext_resource type="Script" path="res://places/lab/blacksmith.gd" id="3_jwt30"]
 [ext_resource type="Script" path="res://places/lab/ritual.gd" id="4_2ehd7"]

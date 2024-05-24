@@ -33,7 +33,7 @@ color = Color(0.233925, 0.233925, 0.233925, 1)
 [node name="hitbox" type="Area2D" parent="calderon"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="calderon/hitbox"]
-position = Vector2(131, 84.5)
+position = Vector2(130, 85)
 shape = SubResource("RectangleShape2D_yynuu")
 
 [node name="items" parent="." instance=ExtResource("2_tos2v")]

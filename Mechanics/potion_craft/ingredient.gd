@@ -21,6 +21,7 @@ func _process(delta):
 					self.global_position = self.initial_pos 
 				else:
 					self.hide()
+				$/root/potion.craft_pot(tipe)
 			if what_for == "item":
 				
 				globals.item_ingredients[self.tipe]-=1
@@ -28,6 +29,7 @@ func _process(delta):
 					self.global_position = self.initial_pos 
 				else:
 					self.hide()
+				$/root/anvill.craft_item(tipe)
 	else:
 		self.global_position = self.initial_pos 
 	
