@@ -14,7 +14,7 @@ func _process(delta):
 	
 	if self.mouse_in and Input.is_action_pressed("left_mouse"):
 		self.global_position = get_global_mouse_position()
-	elif Input.is_action_just_released("left_mouse") and $/root.get_child(1).get_child(2).get_child(0).overlaps_area(get_child(1)):
+	elif Input.is_action_just_released("left_mouse") and $/root.get_child(2).get_child(2).get_child(0).overlaps_area(get_child(1)):
 			if what_for == "potion":
 				globals.potion_ingredients[self.tipe]-=1
 				if globals.potion_ingredients[self.tipe] > 0:
