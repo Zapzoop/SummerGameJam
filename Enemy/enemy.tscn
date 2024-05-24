@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dp0oqek1f8tut"]
+[gd_scene load_steps=7 format=3 uid="uid://dp0oqek1f8tut"]
 
 [ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_qqefk"]
 [ext_resource type="Texture2D" uid="uid://cgi83bss6t4fn" path="res://icon.svg" id="2_q44be"]
+[ext_resource type="Material" uid="uid://bqt2em2bo5gu" path="res://Enemy/enemy.tres" id="2_t0ebn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_porjk"]
 animations = [{
@@ -109,14 +110,17 @@ height = 108.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_73f0w"]
 radius = 458.594
 
-[node name="enemy" type="CharacterBody2D"]
+[node name="enemy" type="CharacterBody2D" groups=["interactable"]]
+collision_layer = 5
+collision_mask = 2
 script = ExtResource("1_qqefk")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(-2.38419e-07, 1)
+material = ExtResource("2_t0ebn")
 scale = Vector2(0.492188, 0.84375)
 sprite_frames = SubResource("SpriteFrames_porjk")
-animation = &"zombie_walkX"
+animation = &"vampire_walkX"
+frame_progress = 0.150558
 
 [node name="hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_7dxwp")
@@ -127,8 +131,25 @@ shape = SubResource("CapsuleShape2D_7dxwp")
 
 [node name="trigger" type="Area2D" parent="."]
 collision_layer = 2
+collision_mask = 2
 
 [node name="shape" type="CollisionShape2D" parent="trigger"]
+visible = false
 shape = SubResource("CircleShape2D_73f0w")
 
+[node name="wandertime" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(5, 5)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+material = ExtResource("2_t0ebn")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_q44be")
+
 [connection signal="body_entered" from="trigger" to="." method="_on_trigger_body_entered"]
+[connection signal="body_exited" from="trigger" to="." method="_on_trigger_body_exited"]
+[connection signal="timeout" from="wandertime" to="." method="_on_wandertime_timeout"]

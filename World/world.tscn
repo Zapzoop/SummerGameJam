@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://vbmnwvxqys1e"]
+[gd_scene load_steps=17 format=3 uid="uid://vbmnwvxqys1e"]
 
 [ext_resource type="Script" path="res://World/Overworld.gd" id="1_2k0n6"]
 [ext_resource type="Script" path="res://World/Underworld.gd" id="2_h7tix"]
 [ext_resource type="Texture2D" uid="uid://cgi83bss6t4fn" path="res://icon.svg" id="3_5m4do"]
 [ext_resource type="Script" path="res://World/GUI.gd" id="3_ho8vo"]
+[ext_resource type="PackedScene" uid="uid://bnmayuw00elph" path="res://Player/attack_1_cd.tscn" id="5_loln7"]
 [ext_resource type="Texture2D" uid="uid://bffduaaagoacb" path="res://dot.png" id="5_m7hlp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y88xt"]
@@ -93,6 +94,18 @@ shape = SubResource("RectangleShape2D_q4vx1")
 
 [node name="Spawn_U1" type="Node2D" parent="Underworld/Chapter1"]
 
+[node name="Faction1" type="Node2D" parent="Underworld/Chapter1"]
+position = Vector2(1120, 872)
+
+[node name="Faction2" type="Node2D" parent="Underworld/Chapter1"]
+position = Vector2(3272, 832)
+
+[node name="Faction3" type="Node2D" parent="Underworld/Chapter1"]
+position = Vector2(3744, -616)
+
+[node name="Faction4" type="Node2D" parent="Underworld/Chapter1"]
+position = Vector2(1056, -624)
+
 [node name="Chapter2" type="Area2D" parent="Underworld"]
 position = Vector2(4096, 0)
 
@@ -130,13 +143,22 @@ script = ExtResource("3_ho8vo")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="GUI"]
 
-[node name="Portal" type="Sprite2D" parent="GUI"]
-position = Vector2(64, 576)
+[node name="Portal" type="TextureRect" parent="GUI"]
+anchors_preset = -1
+anchor_left = 0.0555556
+anchor_top = 0.888889
+anchor_right = 0.111111
+anchor_bottom = 0.987654
+offset_right = -64.0
+offset_bottom = -64.0
 scale = Vector2(0.5, 0.5)
+mouse_filter = 2
 texture = ExtResource("3_5m4do")
+metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="Button" parent="GUI/Portal"]
 modulate = Color(1, 1, 1, 0)
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -144,6 +166,32 @@ offset_left = -64.0
 offset_top = -64.0
 offset_right = -64.0
 offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="attack1_cd" parent="GUI" instance=ExtResource("5_loln7")]
+anchor_left = 0.861111
+anchor_top = 0.0246914
+anchor_right = 0.892361
+anchor_bottom = 0.0879631
+mouse_filter = 2
+
+[node name="attack2_cd" parent="GUI" instance=ExtResource("5_loln7")]
+anchor_left = 0.923611
+anchor_top = 0.0246914
+anchor_right = 0.954861
+anchor_bottom = 0.0879631
+mouse_filter = 2
+
+[node name="Progress" type="Label" parent="GUI"]
+visible = false
+anchors_preset = -1
+anchor_left = 0.465278
+anchor_right = 0.604167
+anchor_bottom = 0.0354938
+offset_right = -120.0
+text = "Factions Remaining: "
 metadata/_edit_use_anchors_ = true
 
 [node name="Dot" type="Sprite2D" parent="."]
@@ -184,6 +232,22 @@ texture = ExtResource("3_5m4do")
 
 [node name="Dot5" type="Sprite2D" parent="."]
 position = Vector2(8624, 3248)
+texture = ExtResource("5_m7hlp")
+
+[node name="Dot8" type="Sprite2D" parent="."]
+position = Vector2(1104, 3912)
+texture = ExtResource("5_m7hlp")
+
+[node name="Dot10" type="Sprite2D" parent="."]
+position = Vector2(3240, 3912)
+texture = ExtResource("5_m7hlp")
+
+[node name="Dot12" type="Sprite2D" parent="."]
+position = Vector2(3744, 2456)
+texture = ExtResource("5_m7hlp")
+
+[node name="Dot14" type="Sprite2D" parent="."]
+position = Vector2(1064, 2440)
 texture = ExtResource("5_m7hlp")
 
 [connection signal="pressed" from="GUI/Portal/Button" to="GUI" method="_on_button_pressed"]

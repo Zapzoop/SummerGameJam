@@ -2,14 +2,16 @@
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_qs265"]
 [ext_resource type="Texture2D" uid="uid://cgi83bss6t4fn" path="res://icon.svg" id="2_nkfu1"]
-[ext_resource type="PackedScene" uid="uid://bnmayuw00elph" path="res://Player/attack_1_cd.tscn" id="3_r40ni"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ysubx"]
 radius = 17.0
 height = 64.0
 
-[node name="player" type="CharacterBody2D"]
-position = Vector2(558, 253)
+[sub_resource type="CircleShape2D" id="CircleShape2D_k37mc"]
+radius = 64.0
+
+[node name="player" type="CharacterBody2D" groups=["interactable", "player"]]
+collision_layer = 2
 script = ExtResource("1_qs265")
 
 [node name="hitbox" type="CollisionShape2D" parent="."]
@@ -19,9 +21,11 @@ shape = SubResource("CapsuleShape2D_ysubx")
 scale = Vector2(0.265625, 0.5)
 texture = ExtResource("2_nkfu1")
 
-[node name="attack1_cd" parent="." instance=ExtResource("3_r40ni")]
-
-[node name="attack2_cd" parent="." instance=ExtResource("3_r40ni")]
-position = Vector2(532, -224)
-
 [node name="Camera" type="Camera2D" parent="."]
+
+[node name="attack radius" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attack radius"]
+shape = SubResource("CircleShape2D_k37mc")
+
+[connection signal="body_entered" from="attack radius" to="." method="_on_attack_radius_body_entered"]

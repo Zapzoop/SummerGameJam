@@ -5,11 +5,15 @@ var player = preload("res://Player/player.tscn")
 var chapter2_lock = true
 var chapter3_lock = true
 
+@onready var progress = $"../GUI/Progress"
+
 @onready var spawn_o1 = $Chapter1/Spawn_O1
 @onready var spawn_o2 = $Chapter2/Spawn_O2
 @onready var spawn_o3 = $Chapter3/Spawn_O3
 
-# Called when the node enters the scene tree for the first time.
+func stop_chapter1():
+	progress.hide()
+
 func _ready():
 	Autoload.overworld = self
 	init_spawn()
@@ -32,6 +36,3 @@ func init_spawn():
 			self.add_child(ins)
 			ins.whereami = "O3"
 			ins.global_position = spawn_o3.global_position
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass

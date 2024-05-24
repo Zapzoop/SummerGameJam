@@ -6,6 +6,7 @@
 [node name="test_area" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource("2_82yy2")]
+position = Vector2(792, 192)
 collision_layer = 3
 
 [node name="enemy" parent="." instance=ExtResource("1_d5dy0")]
@@ -15,3 +16,6 @@ offset_left = 566.0
 offset_top = 144.0
 offset_right = 606.0
 offset_bottom = 184.0
+
+[node name="enemy2" parent="." instance=ExtResource("1_d5dy0")]
+position = Vector2(160, 128)
