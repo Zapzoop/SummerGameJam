@@ -6,10 +6,8 @@ uniform int pattern : hint_range(0, 2) = 0; // diamond, circle, square
 uniform bool inside = false;
 uniform bool add_margins = true; // only useful when inside is false
 uniform vec2 number_of_images = vec2(1.0); // number of horizontal and vertical images in the sprite sheet
-varying flat vec4 modulate;
 
 void vertex() {
-	modulate = COLOR;
 	if (add_margins) {
 		VERTEX += sign(VERTEX) * width; // replace sign(VERTEX) by (sign(VERTEX) * 2.0 - 1.0) if not Centered
 	}
@@ -54,14 +52,14 @@ void fragment() {
 		if (uv != clamp(uv, image_top_left, image_bottom_right)) {
 			COLOR.a = 0.0;
 		} else {
-			COLOR = texture(TEXTURE, uv)* modulate;
+			COLOR = texture(TEXTURE, uv);
 		}
 	} else {
-		COLOR = texture(TEXTURE, uv)* modulate;
+		COLOR = texture(TEXTURE, uv);
 	}
 	
 	if ((COLOR.a > 0.0) == inside && hasContraryNeighbour(uv, TEXTURE_PIXEL_SIZE, image_top_left, image_bottom_right, TEXTURE)) {
-		COLOR.rgb = inside ? mix(COLOR.rgb, color.rgb * modulate.rgb, color.a * modulate.a) : color.rgb * modulate.rgb;
-		COLOR.a += (1.0 - COLOR.a) * color.a * modulate.a;
+		COLOR.rgb = inside ? mix(COLOR.rgb, color.rgb, color.a) : color.rgb;
+		COLOR.a += (1.0 - COLOR.a) * color.a;
 	}
 }

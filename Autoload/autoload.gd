@@ -13,11 +13,15 @@ var player
 
 var spawn_to
 
-func big_attack_done():
+func big_attack_done(attack_to):
+	if attack_to != null:
+		attack_to.hit_big()
 	big_attack.cooldown_sprite.show()
 	big_attack.start_cooldown()
 
-func small_attack_done():
+func small_attack_done(attack_to):
+	if attack_to != null:
+		attack_to.hit_small()
 	small_attack.cooldown_sprite.show()
 	small_attack.start_cooldown()
 

@@ -3,9 +3,8 @@
 [ext_resource type="Script" path="res://Player/player.gd" id="1_qs265"]
 [ext_resource type="Texture2D" uid="uid://cgi83bss6t4fn" path="res://icon.svg" id="2_nkfu1"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ysubx"]
-radius = 17.0
-height = 64.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bgibs"]
+size = Vector2(32, 20)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k37mc"]
 radius = 64.0
@@ -14,14 +13,17 @@ radius = 64.0
 collision_layer = 2
 script = ExtResource("1_qs265")
 
-[node name="hitbox" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_ysubx")
-
 [node name="sprite" type="Sprite2D" parent="."]
 scale = Vector2(0.265625, 0.5)
 texture = ExtResource("2_nkfu1")
 
+[node name="hitbox" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 24)
+shape = SubResource("RectangleShape2D_bgibs")
+
 [node name="Camera" type="Camera2D" parent="."]
+zoom = Vector2(0.05, 0.05)
 
 [node name="attack radius" type="Area2D" parent="."]
 
@@ -29,3 +31,4 @@ texture = ExtResource("2_nkfu1")
 shape = SubResource("CircleShape2D_k37mc")
 
 [connection signal="body_entered" from="attack radius" to="." method="_on_attack_radius_body_entered"]
+[connection signal="body_exited" from="attack radius" to="." method="_on_attack_radius_body_exited"]

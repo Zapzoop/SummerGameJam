@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const ACCELERATION = 250
 
-var shader_to_load = load("res://Enemy/enemy.tres")
+var shader_to_load = preload("res://Enemy/enemy.tres")
 
 @onready var sprite_to_add_shader =$sprite 
 
@@ -18,6 +18,7 @@ var speed:int
 var target_pos = Vector2()
 var friction = 5
 var player = Autoload.player
+#@onready var player = $"../player"
 
 var triggered:bool = false
 var should_move = true
@@ -38,9 +39,8 @@ var player_visible = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	highlight_me()
-	change_state([IDLE,WANDER])	
-	self.race = "zombie"
+	change_state([IDLE,WANDER])
+	#self.race = "zombie"
 	if self.race == "zombie":
 		create_zombie()
 	elif self.race == "skeleton":
@@ -84,6 +84,8 @@ func _physics_process(delta):
 			if global_position.distance_to(player.global_position) < 300:
 				target_pos = (player.global_position - global_position).normalized()
 				velocity = -target_pos * speed * 0.4 * 2
+			if global_position.distance_to(player.global_position) > 400:
+				change_state([IDLE,WANDER])
 	move_and_slide()
 
 
@@ -92,7 +94,7 @@ func _on_trigger_body_entered(body):
 		if body.is_in_group("player"):
 			player_visible = true
 		if body.race in enemies:
-			if current_heath < max_health * 0.2:
+			if current_heath <= max_health * 0.4:
 				state = RETREAT
 			else:
 				state = CHASE
@@ -112,7 +114,7 @@ func create_zombie():
 	self.current_heath = self.max_health
 	self.attack = 50
 	self.speed = 50
-	#self.modulate = "3b8431"
+	self.modulate = "3b8431"
 	self.enemies = ["demon"]
 	self.ally = ["zombie","skeleton"]
 	
@@ -122,7 +124,7 @@ func create_skeleton():
 	self.current_heath = self.max_health
 	self.attack = 90
 	self.speed = 45
-	#self.modulate = "e5e5e6"
+	self.modulate = "e5e5e6"
 	self.enemies = ["vampires"]
 	self.ally = ["zombie","skeleton"]
 
@@ -131,7 +133,7 @@ func create_demon():
 	self.current_heath = self.max_health
 	self.attack = 30
 	self.speed = 20
-	#self.modulate = "e84366"
+	self.modulate = "e84366"
 	self.enemies = ["zombies","vampires"]
 	self.ally = ["demon"]
 
@@ -140,7 +142,7 @@ func create_vampire():
 	self.current_heath = self.max_health
 	self.attack = 40
 	self.speed = 70
-	#self.modulate = "916ee8"
+	self.modulate = "916ee8"
 	self.enemies = ["skeleton","demon"]
 	self.ally = ["vampire"]
 	
@@ -239,11 +241,27 @@ func accelerate_towards_point(point, delta, MAX_SPEED):
 	var direction = global_position.direction_to(point)
 	velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta)
 	#print(velocity)
-
+#
 func highlight_me():
-	var material_new = ShaderMaterial.new()
-	material_new.shader = shader_to_load
+	var material_new = Material.new()
+	material_new = shader_to_load
 	$sprite.set_material(material_new)
-
+#
 func unhighlight_me():
 	$sprite.set_material(null)
+
+func hit_big():
+	current_heath -= 20
+	check_health()
+	print(current_heath)
+	
+func hit_small():
+	current_heath -= 10
+	check_health()
+	print(current_heath)
+
+func check_health():
+	if current_heath <= max_health * 0.4:
+		state = RETREAT
+	if current_heath <= 0:
+		self.queue_free()

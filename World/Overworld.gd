@@ -11,6 +11,7 @@ var chapter3_lock = true
 @onready var spawn_o2 = $Chapter2/Spawn_O2
 @onready var spawn_o3 = $Chapter3/Spawn_O3
 
+
 func stop_chapter1():
 	progress.hide()
 
@@ -36,3 +37,21 @@ func init_spawn():
 			self.add_child(ins)
 			ins.whereami = "O3"
 			ins.global_position = spawn_o3.global_position
+
+
+func _on_O_chapter_1_body_entered(body):
+	if body.is_in_group("player"):
+		Autoload.player.whereami = "O1"
+		print("Player entered Overworld Chapter 1")
+
+
+func _on_O_chapter_2_body_entered(body):
+	if body.is_in_group("player"):
+		Autoload.player.whereami = "O2"
+		print("Player entered Overworld Chapter 2")
+
+
+func _on_O_chapter_3_body_entered(body):
+	if body.is_in_group("player"):
+		Autoload.player.whereami = "O3"
+		print("Player entered Overworld Chapter 3")

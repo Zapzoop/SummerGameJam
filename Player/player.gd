@@ -22,9 +22,9 @@ func _ready():
 
 func _input(event):
 	if can_attack == true and Input.is_action_just_pressed("big_attack"):
-		Autoload.big_attack_done()
+		Autoload.big_attack_done(super_closest)
 	if can_attack == true and Input.is_action_just_pressed("small_attack"):
-		Autoload.small_attack_done()
+		Autoload.small_attack_done(super_closest)
 
 func _physics_process(delta):
 	if moba:
@@ -79,5 +79,12 @@ func closest_entity():
 	return closest_body
 
 func _on_attack_radius_body_entered(body):
-	if body.is_in_group("interactable"):
+	if body.is_in_group("interactable") and !body.is_in_group("player"):
 		inside_range.append(body)
+
+
+func _on_attack_radius_body_exited(body):
+	if body.is_in_group("interactable")and !body.is_in_group("player"):
+		body.unhighlight_me()
+		super_closest = null
+		inside_range.erase(body)

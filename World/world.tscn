@@ -43,6 +43,8 @@ size = Vector2(200, 2048)
 script = ExtResource("1_2k0n6")
 
 [node name="Chapter1" type="Area2D" parent="Overworld"]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Overworld/Chapter1"]
 position = Vector2(2048, 0)
@@ -52,12 +54,14 @@ shape = SubResource("RectangleShape2D_y88xt")
 
 [node name="Chapter2" type="Area2D" parent="Overworld"]
 position = Vector2(4096, 0)
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Overworld/Chapter2"]
 position = Vector2(2048, 0)
 shape = SubResource("RectangleShape2D_u45jn")
 
 [node name="Chapter2_Blocker" type="StaticBody2D" parent="Overworld/Chapter2"]
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Overworld/Chapter2/Chapter2_Blocker"]
 position = Vector2(100, 0)
@@ -68,6 +72,7 @@ position = Vector2(210, 0)
 
 [node name="Chapter3" type="Area2D" parent="Overworld"]
 position = Vector2(8192, 0)
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Overworld/Chapter3"]
 position = Vector2(2048, 0)
@@ -82,11 +87,23 @@ shape = SubResource("RectangleShape2D_2s83h")
 [node name="Spawn_O3" type="Node2D" parent="Overworld/Chapter3"]
 position = Vector2(210, 0)
 
+[node name="Boundary" type="StaticBody2D" parent="Overworld"]
+collision_layer = 255
+collision_mask = 0
+
+[node name="Overworld" type="CollisionPolygon2D" parent="Overworld/Boundary"]
+polygon = PackedVector2Array(-8, -1024, -8, 456, -8, 800, -8, 1032, 576, 1032, 1080, 1032, 1568, 1032, 2048, 1032, 2560, 1032, 3064, 1032, 3576, 1032, 4080, 1032, 4544, 1032, 5984, 1032, 8152, 1032, 11768, 1032, 12328, 1032, 12296, 1024, 12296, -64, 12296, -632, 12296, -944, 12296, -1032, 10496, -1032, 8352, -1032, 7248, -1032, 6144, -1032, 5112, -1032, 4552, -1032, 4000, -1032, 2304, -1032, 128, -1032, 0, -1032, 10056, -1344, 14424, -1240, 14128, 1320, -448, 1496, -488, -1240)
+
+[node name="Underworld" type="CollisionPolygon2D" parent="Overworld/Boundary"]
+position = Vector2(0, 3072)
+polygon = PackedVector2Array(-8, -1024, -8, 456, -8, 800, -8, 1032, 576, 1032, 1080, 1032, 1568, 1032, 2048, 1032, 2560, 1032, 3064, 1032, 3576, 1032, 4080, 1032, 4544, 1032, 5984, 1032, 8152, 1032, 11768, 1032, 12328, 1032, 12296, 1024, 12296, -64, 12296, -632, 12296, -944, 12296, -1032, 10496, -1032, 8352, -1032, 7248, -1032, 6144, -1032, 5112, -1032, 4552, -1032, 4000, -1032, 2304, -1032, 128, -1032, 0, -1032, 10056, -1344, 14424, -1240, 14128, 1320, -448, 1496, -488, -1240)
+
 [node name="Underworld" type="Node2D" parent="."]
 position = Vector2(0, 3072)
 script = ExtResource("2_h7tix")
 
 [node name="Chapter1" type="Area2D" parent="Underworld"]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Underworld/Chapter1"]
 position = Vector2(2048, 0)
@@ -108,12 +125,15 @@ position = Vector2(1056, -624)
 
 [node name="Chapter2" type="Area2D" parent="Underworld"]
 position = Vector2(4096, 0)
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Underworld/Chapter2"]
 position = Vector2(2048, 0)
 shape = SubResource("RectangleShape2D_s7rem")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Underworld/Chapter2"]
+collision_layer = 5
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Underworld/Chapter2/StaticBody2D"]
 position = Vector2(100, 0)
@@ -122,8 +142,21 @@ shape = SubResource("RectangleShape2D_7h74e")
 [node name="Spawn_U2" type="Node2D" parent="Underworld/Chapter2"]
 position = Vector2(210, 0)
 
+[node name="Faction5" type="Node2D" parent="Underworld/Chapter2"]
+position = Vector2(584, -752)
+
+[node name="Faction6" type="Node2D" parent="Underworld/Chapter2"]
+position = Vector2(1528, 624)
+
+[node name="Faction7" type="Node2D" parent="Underworld/Chapter2"]
+position = Vector2(3320, -704)
+
+[node name="Faction8" type="Node2D" parent="Underworld/Chapter2"]
+position = Vector2(3392, 664)
+
 [node name="Chapter3" type="Area2D" parent="Underworld"]
 position = Vector2(8192, 0)
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Underworld/Chapter3"]
 position = Vector2(2048, 0)
@@ -137,6 +170,18 @@ shape = SubResource("RectangleShape2D_j6tj2")
 
 [node name="Spawn_U3" type="Node2D" parent="Underworld/Chapter3"]
 position = Vector2(210, 0)
+
+[node name="Faction9" type="Node2D" parent="Underworld/Chapter3"]
+position = Vector2(936, -800)
+
+[node name="Faction10" type="Node2D" parent="Underworld/Chapter3"]
+position = Vector2(3304, 376)
+
+[node name="Faction11" type="Node2D" parent="Underworld/Chapter3"]
+position = Vector2(1360, 664)
+
+[node name="Faction12" type="Node2D" parent="Underworld/Chapter3"]
+position = Vector2(3536, -696)
 
 [node name="GUI" type="CanvasLayer" parent="."]
 script = ExtResource("3_ho8vo")
@@ -152,7 +197,6 @@ anchor_bottom = 0.987654
 offset_right = -64.0
 offset_bottom = -64.0
 scale = Vector2(0.5, 0.5)
-mouse_filter = 2
 texture = ExtResource("3_5m4do")
 metadata/_edit_use_anchors_ = true
 
@@ -250,4 +294,10 @@ texture = ExtResource("5_m7hlp")
 position = Vector2(1064, 2440)
 texture = ExtResource("5_m7hlp")
 
+[connection signal="body_entered" from="Overworld/Chapter1" to="Overworld" method="_on_O_chapter_1_body_entered"]
+[connection signal="body_entered" from="Overworld/Chapter2" to="Overworld" method="_on_O_chapter_2_body_entered"]
+[connection signal="body_entered" from="Overworld/Chapter3" to="Overworld" method="_on_O_chapter_3_body_entered"]
+[connection signal="body_entered" from="Underworld/Chapter1" to="Underworld" method="_on_U_chapter_1_body_entered"]
+[connection signal="body_entered" from="Underworld/Chapter2" to="Underworld" method="_on_U_chapter_2_body_entered"]
+[connection signal="body_entered" from="Underworld/Chapter3" to="Underworld" method="_on_U_chapter_3_body_entered"]
 [connection signal="pressed" from="GUI/Portal/Button" to="GUI" method="_on_button_pressed"]
