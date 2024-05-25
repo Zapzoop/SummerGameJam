@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqwnjuyh8y0rd"]
+
+[ext_resource type="Script" path="res://Mechanics/item_craft/back.gd" id="1_0h6dd"]
+
+[node name="back" type="Button"]
+offset_left = 27.0
+offset_top = 30.0
+offset_right = 92.0
+offset_bottom = 79.0
+text = "back"
+script = ExtResource("1_0h6dd")

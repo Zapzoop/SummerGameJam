@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://coqpycttg26om"]
+
+[ext_resource type="Script" path="res://Mechanics/potion_craft/items.gd" id="1_5bjvx"]
+
+[node name="items" type="Node2D"]
+position = Vector2(1055, 204)
+script = ExtResource("1_5bjvx")
